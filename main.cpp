@@ -251,81 +251,7 @@ void cubes(float r, float g, float b, int a, float p)
 
 
 }
-void chimni(float r, float g, float b)
-{
 
-    glBegin(GL_QUADS);
-    for (GLint i = 21; i < 26; i++)
-    {
-        GLfloat no_mat[] = { 0.0, 0.0, 0.0, 1.0 };
-        GLfloat mat_ambient[] = { r * 0.2, g * 0.2, b * 0.3, 1.0 };
-        GLfloat mat_diffuse[] = { colors[i - 6][0],colors[i - 6][1],colors[i - 6][2],1.0 };
-        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-        GLfloat mat_shininess[] = { 60 };
-
-        glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-        glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-        glVertex3fv(&v_pyramid[quadIndices[i][0]][0]);
-        glVertex3fv(&v_pyramid[quadIndices[i][1]][0]);
-        glVertex3fv(&v_pyramid[quadIndices[i][2]][0]);
-        glVertex3fv(&v_pyramid[quadIndices[i][3]][0]);
-    }
-    glEnd();
-
-
-}
-void Hexa(float r, float g, float b, float r2, float g2, float b2)
-{
-    glBegin(GL_QUADS);
-    for (GLint i = 15; i < 21; i++)
-    {
-        
-        GLfloat no_mat[] = { 0.0, 0.0, 0.0, 1.0 };
-        GLfloat mat_ambient[] = { r * 0.3, g * 0.3, b * 0.3, 1.0 };
-        GLfloat mat_diffuse[] = { r , g ,  b , 1.0 }; 
-        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-        GLfloat mat_shininess[] = { 60 };
-
-        glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-        glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-
-        glVertex3fv(&v_pyramid[quadIndices[i][0]][0]);
-        glVertex3fv(&v_pyramid[quadIndices[i][1]][0]);
-        glVertex3fv(&v_pyramid[quadIndices[i][2]][0]);
-        glVertex3fv(&v_pyramid[quadIndices[i][3]][0]);
-    }
-    glEnd();
-
-    glBegin(GL_POLYGON);
-    for (GLint i = 0; i < 2; i++)
-    {
-        
-        GLfloat no_mat[] = { 0.0, 0.0, 0.0, 1.0 };
-        GLfloat mat_ambient[] = { r2 * 0.3, g2 * 0.3,b2 * 0.3, 1.0 };
-        GLfloat mat_diffuse[] = { r2 , g2 ,b2 ,1.0 };
-        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-        GLfloat mat_shininess[] = { 60 };
-
-        glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-        glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-
-        glVertex3fv(&v_pyramid[hexaIndices[i][0]][0]);
-        glVertex3fv(&v_pyramid[hexaIndices[i][1]][0]);
-        glVertex3fv(&v_pyramid[hexaIndices[i][2]][0]);
-        glVertex3fv(&v_pyramid[hexaIndices[i][3]][0]);
-        glVertex3fv(&v_pyramid[hexaIndices[i][4]][0]);
-        glVertex3fv(&v_pyramid[hexaIndices[i][5]][0]);
-    }
-    glEnd();
-
-
-}
 void leaf(float r, float g, float b, float r2, float g2, float b2)
 {
     glBegin(GL_POLYGON);
@@ -612,29 +538,6 @@ void cyclider(float r, float g, float b)
 
 
 
-void dhal(float r, float g, float b)
-{
-    glBegin(GL_QUADS);
-    for (GLint i = 26; i < 32; i++)
-    {
-        GLfloat no_mat[] = { 0.0, 0.0, 0.0, 1.0 };
-        GLfloat mat_ambient[] = { r * 0.5, g * 0.5, b * 0.5, 1.0 };
-        GLfloat mat_diffuse[] = { r, g, b, 1.0 };
-        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-        GLfloat mat_shininess[] = { 30 };
-
-        glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-        glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-
-        glVertex3fv(&v_pyramid[quadIndices[i][0]][0]); glTexCoord2f(1, 1);
-        glVertex3fv(&v_pyramid[quadIndices[i][1]][0]); glTexCoord2f(1, 0);
-        glVertex3fv(&v_pyramid[quadIndices[i][2]][0]); glTexCoord2f(0, 0);
-        glVertex3fv(&v_pyramid[quadIndices[i][3]][0]); glTexCoord2f(0, 1);
-    }
-    glEnd();
-}
 
 void pillar(float r, float g, float b, int a, int p, int h)
 {
