@@ -9,8 +9,10 @@ double Txval = 0, Tyval = 0, Tzval = 0;
 GLUquadric* qobj;
 
 double windowHeight = 2000, windowWidth = 900;
+
 GLfloat alpha = 0.0, theta = 0.0, axis_x = 0.0, axis_y = 0.0;
-GLboolean bRotate = false, uRotate = false, welRotate = true, walkrotate1 = true, walkrotate2 = false, night = false;
+
+GLboolean bRotate = false, uRotate = false, welRotate = true, night = false;
 
 GLfloat fTheta = 0.0; //door and window rotation in building
 GLfloat faTheta = 0.0; //fan rotation
@@ -65,7 +67,7 @@ static GLfloat v_pyramid[65][3] =
     {1.73, 3.0, 1.0},//24
     {1.73, 1.0, 1.0},//25
     {1.73, 1.0, 0.0},//26
-    {1.0, 2.0, 0.0},//27 chimni point
+    {1.0, 2.0, 0.0},//27 
     {3.0, 2.0, 0.0},//28
     {5, 0.0, 0.0},//29
     {0.0, 0.0, 2.0},//30
@@ -76,14 +78,14 @@ static GLfloat v_pyramid[65][3] =
     {0.0, 1.0, 0.0},//35
     {0.0, 1.0, 1.0},//36
     {0.0, 0.0, 1.0},//37
-    {0.0, 0.0, 0.0},//38 //rail uchu
+    {0.0, 0.0, 0.0},//38 
     {0.0, 1.0, 0.2},//39
     {0.0, 1.0, 2.2},//40
     {0.0, 0.0, 2.4},//41
     {2.0, 0.0, 0.0},//42 //
     {2.0, 1.0, 0.2},//43
     {2.0, 1.0, 2.2},//44
-    {2.0, 0.0, 2.4},//45//////////jhjs//dsd
+    {2.0, 0.0, 2.4},//45
     {-2.0, 0.0, 1.5},//46
     {-0.75, 0.0, 1.25},//47
     {-1.75, 0.0, 2.5},//48
@@ -270,16 +272,16 @@ void leaf(float r, float g, float b, float r2, float g2, float b2)
         glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-        glVertex3fv(&v_pyramid[hexa2Indices[i][0]][0]); glTexCoord2f(0.5, 1);
-        glVertex3fv(&v_pyramid[hexa2Indices[i][1]][0]); glTexCoord2f(0, 0.625);
-        glVertex3fv(&v_pyramid[hexa2Indices[i][2]][0]); glTexCoord2f(0.2, 0.7);
-        glVertex3fv(&v_pyramid[hexa2Indices[i][3]][0]); glTexCoord2f(0.1, 0.3);
-        glVertex3fv(&v_pyramid[hexa2Indices[i][4]][0]); glTexCoord2f(0.25, 0.4);
-        glVertex3fv(&v_pyramid[hexa2Indices[i][5]][0]); glTexCoord2f(0.5, 0);
-        glVertex3fv(&v_pyramid[hexa2Indices[i][6]][0]); glTexCoord2f(0.75, 0.3);
-        glVertex3fv(&v_pyramid[hexa2Indices[i][7]][0]); glTexCoord2f(0.9, 0.3);
-        glVertex3fv(&v_pyramid[hexa2Indices[i][8]][0]); glTexCoord2f(0.7, 0.6);
-        glVertex3fv(&v_pyramid[hexa2Indices[i][9]][0]); glTexCoord2f(1, 0.625);;
+        glVertex3fv(&v_pyramid[hexa2Indices[i][0]][0]); /*glTexCoord2f(0.5, 1);*/
+        glVertex3fv(&v_pyramid[hexa2Indices[i][1]][0]); /*glTexCoord2f(0, 0.625);*/
+        glVertex3fv(&v_pyramid[hexa2Indices[i][2]][0]); /*glTexCoord2f(0.2, 0.7);*/
+        glVertex3fv(&v_pyramid[hexa2Indices[i][3]][0]); /*glTexCoord2f(0.1, 0.3);*/
+        glVertex3fv(&v_pyramid[hexa2Indices[i][4]][0]);/* glTexCoord2f(0.25, 0.4);*/
+        glVertex3fv(&v_pyramid[hexa2Indices[i][5]][0]); /*glTexCoord2f(0.5, 0);*/
+        glVertex3fv(&v_pyramid[hexa2Indices[i][6]][0]); /*glTexCoord2f(0.75, 0.3);*/
+        glVertex3fv(&v_pyramid[hexa2Indices[i][7]][0]); /*glTexCoord2f(0.9, 0.3);*/
+        glVertex3fv(&v_pyramid[hexa2Indices[i][8]][0]); /*glTexCoord2f(0.7, 0.6);*/
+        glVertex3fv(&v_pyramid[hexa2Indices[i][9]][0]); /*glTexCoord2f(1, 0.625);;*/
     }
     glEnd();
 
@@ -397,20 +399,6 @@ void sphere(float r, float g, float b)
     glutSolidSphere(1, 50, 50);
 }
 
-void wirsphere(int a)
-{
-    GLfloat no_mat[] = { 0.0, 0.0, 0.0, 1.0 };
-    GLfloat mat_ambient[] = { 0.2, 0.2, 0.3, 1.0 };
-    GLfloat mat_diffuse[] = { 1.0, 0.1, 0.1, 1.0 };
-    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-    GLfloat mat_shininess[] = { 60 };
-
-    glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-    glutWireSphere(a, slices, stacks);
-}
 
 void init() 
 {
@@ -1970,53 +1958,7 @@ void myKeyboardFunc(unsigned char key, int x, int y)
 
     switch (key)
     {
-    case 'p':
-        center[1] += 0.1;
-        center[2] = -sqrt(eye[2] * eye[2] - (center[0] - eye[0]) * (center[0] - eye[0]) - (center[1] - eye[1]) * (center[1] - eye[1])) + eye[2];
-        gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
-        break;
-    case 'P':
-        center[1] -= 0.1;
-        center[2] = -sqrt(eye[2] * eye[2] - (center[0] - eye[0]) * (center[0] - eye[0]) - (center[1] - eye[1]) * (center[1] - eye[1])) + eye[2];
-        gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
-        break;
-    case 'o':
-        center[1] += 0.1;
-        center[0] = -sqrt(eye[0] * eye[0] - (center[2] - eye[2]) * (center[2] - eye[2]) - (center[1] - eye[1]) * (center[1] - eye[2])) + eye[0];
-        gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
-        break;
-    case 'O':
-        center[1] -= 0.1;
-        center[0] = -sqrt(eye[0] * eye[0] - (center[2] - eye[2]) * (center[2] - eye[2]) - (center[1] - eye[1]) * (center[1] - eye[2])) + eye[0];
-        gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
-        break;
-    case 'w':
-        up[0] += 0.01;
-        up[1] = sqrt(1 - up[0] * up[0]);
-        gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
-        break;
-
-    case 'W':
-        up[0] -= 0.01;
-        up[1] = sqrt(1 - up[0] * up[0]);
-        gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
-        break;
-
-    case 'c':
-        center[0] -= 0.1;
-        center[2] = -sqrt(eye[2] * eye[2] - (center[0] - eye[0]) * (center[0] - eye[0]) - (center[1] - eye[1]) * (center[1] - eye[1])) + eye[2];
-        gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
-        break;
-    case 'C':
-        center[0] += 0.1;
-        center[2] = -sqrt(eye[2] * eye[2] - (center[0] - eye[0]) * (center[0] - eye[0]) - (center[1] - eye[1]) * (center[1] - eye[1])) + eye[2];
-        gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
-        break;
-        bRotate = !bRotate;
-        uRotate = true;
-        axis_x = 0.0;
-        axis_y = 1.0;
-        break;
+    
     case 'z':
         zoom[2] += 0.1;
         glScalef(zoom[0], zoom[1], zoom[2]);
@@ -2063,18 +2005,6 @@ void myKeyboardFunc(unsigned char key, int x, int y)
         eye[2] += 1;
         gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
         break;
-    case 'b':
-        eye[0] = 55;
-        eye[1] = 30;
-        eye[2] = 29;
-        center[0] = 55;
-        center[1] = 4;
-        center[2] = 8;
-       
-        gluLookAt(eye[0], eye[1], eye[2], center[0], center[1], center[2], up[0], up[1], up[2]);
-        break;
-       
-    
 
     case 'i':        
         eye[0] = 20;
@@ -2092,24 +2022,19 @@ void myKeyboardFunc(unsigned char key, int x, int y)
         wind[0] = 3;
         wind[1] = 6;
         break;
-    case 'q':
-        night = true;
-        break;
+  
 
-    case 'Q':
-        night = false;
-        break;
-
-    //used keys
- 
+    
+    //open the door and windows
     case '-':
         fTheta -= 2;
         break;
+
     case '*':
         fTheta += 2;
         break;
 
-    case 'u':   //new add
+    case 'l':   //new add
         eye[0] += dx_norm * 5;
         eye[2] += dz_norm * 5;
 
@@ -2130,18 +2055,18 @@ void myKeyboardFunc(unsigned char key, int x, int y)
         center[0] -= dx * 5;
         center[2] -= dz * 5;
         break;
-    case 'k':
+    case 'r':
         eye[0] -= dx_norm * 5;
         eye[2] -= dz_norm * 5;
 
         center[0] -= dx_norm * 5;
         center[2] -= dz_norm * 5;
 
-    case 'l':  //Train forward
+    case 't':  //Train forward
         ftTheta -= 2;
         break;
 
-    case 'L': //train backward
+    case 'T': //train backward
         ftTheta += 2;
         break;
 
@@ -2181,33 +2106,6 @@ void myKeyboardFunc(unsigned char key, int x, int y)
             glDisable(GL_LIGHT2);  //Turn off spot light
         }
         break;
-    case 'a':
-        ambL1 = !ambL1;
-        break;
-    case 'A':
-        ambL2 = !ambL2;
-        break;
-    case 'M':
-        ambL3 = !ambL3;
-        break;
-    case 'd':
-        diffL1 = !diffL1;
-        break;
-    case 'D':
-        diffL2 = !diffL2;
-        break;
-    case 'E':
-        diffL3 = !diffL3;
-        break;
-    case 's':
-        specL1 = !specL1;
-        break;
-    case 'S':
-        specL2 = !specL2;
-        break;
-    case 'T':
-        specL3 = !specL3;
-        break;
 
     //for enttire scene
     case '4':
@@ -2246,19 +2144,14 @@ void animate()
         //Sleep(1000);
     }
 
-    if (bRotate == true)
-    {
-        fTheta += 0.2;
-        if (theta > 360.0)
-            theta -= 360.0 * floor(theta / 360.0);
-    }
+    //if (bRotate == true)
+    //{
+    //    fTheta += 0.2;
+    //    if (theta > 360.0)
+    //        theta -= 360.0 * floor(theta / 360.0);
+    //}
 
-    if (uRotate == true)
-    {
-        alpha += 0.2;
-        if (alpha > 360.0)
-            alpha -= 360.0 * floor(alpha / 360.0);
-    }
+
     //Light1
     if (ambL1 == true)
     {
@@ -2374,17 +2267,18 @@ int main(int argc, char* argv[])
     printf("1=click 1 again to disable light 1\n");
     printf("2=enable light 2\n");
     printf("3=enable light on moon\n");
-    printf("u= go left \n");
+    printf("l= go left \n");
     printf("U= ZOOM in \n");
     printf("K= ZOOM out \n");
-    printf("u= go right \n");
-    printf("l= click l many times to run the train \n");
+    printf("r= go right \n");
+    printf("t= click t many times to run the train \n");
     printf("-= click - to open the door\n");
     printf("i= click i to go initial position\n");
     printf("b= click b for top view\n");
     printf("f/F= to move camera left or right\n");
     printf("g/G= to move camera up or down\n");
     printf("h/H= to move camera near or far\n");
+
     glClearColor(0,0,0,1);
 
     glShadeModel(GL_SMOOTH);
@@ -2393,5 +2287,5 @@ int main(int argc, char* argv[])
     glEnable(GL_LIGHTING);
 
     glutMainLoop();
-    return EXIT_SUCCESS;
+    return 0;
 }
